@@ -23,11 +23,14 @@ whitelist = ['-cheaters', '-invites', '-invite', '-top']
 async def on_message(message):
     role = discord.utils.get(message.guild.roles, name='Member')
     if message.author == bot.user:
+        print (message.content)
         return
     if role not in message.author.roles:
+        print (message.content)
         return
     contents = message.content.split()
     if not any(word in whitelist for word in contents):
+        print (message.content)
         await message.delete()
 
 
